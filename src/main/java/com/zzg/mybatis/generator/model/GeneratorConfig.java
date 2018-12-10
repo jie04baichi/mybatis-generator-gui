@@ -48,6 +48,8 @@ public class GeneratorConfig {
 
 	private boolean annotationDAO;
 
+	private boolean annotationMapper;
+
 	private boolean annotation;
 
 	private boolean useActualColumnNames;
@@ -285,4 +287,13 @@ public class GeneratorConfig {
 	public boolean isUseDAOExtendStyle() {
 		return useDAOExtendStyle;
 	}
+
+	public boolean isAnnotationMapper() {
+		return annotationMapper;
+	}
+
+	public void setAnnotationMapper(boolean annotationMapper) {
+		this.annotationMapper = annotationMapper;
+	}
+	
 }
