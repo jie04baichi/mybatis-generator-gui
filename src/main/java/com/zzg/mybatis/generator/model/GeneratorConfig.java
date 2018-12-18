@@ -48,7 +48,9 @@ public class GeneratorConfig {
 
 	private boolean annotationDAO;
 
-	private boolean annotationMapper;
+	private boolean annotationDAOMapper;
+	
+	private boolean annotationDAOJson;
 
 	private boolean annotation;
 
@@ -288,12 +290,20 @@ public class GeneratorConfig {
 		return useDAOExtendStyle;
 	}
 
-	public boolean isAnnotationMapper() {
-		return annotationMapper;
+	public boolean isAnnotationDAOMapper() {
+		return annotationDAOMapper;
 	}
 
-	public void setAnnotationMapper(boolean annotationMapper) {
-		this.annotationMapper = annotationMapper;
+	public void setAnnotationDAOMapper(boolean annotationMapper) {
+		this.annotationDAOMapper = annotationMapper;
+	}
+
+	public boolean isAnnotationDAOJson() {
+		return annotationDAOJson;
+	}
+
+	public void setAnnotationDAOJson(boolean annotationDAOJson) {
+		this.annotationDAOJson = annotationDAOJson;
 	}
 	
 }

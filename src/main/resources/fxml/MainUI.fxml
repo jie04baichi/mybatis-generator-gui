@@ -223,13 +223,14 @@
                                                 <Insets right="10.0" />
                                              </HBox.margin></CheckBox>
                                            <CheckBox fx:id="useSchemaPrefix" mnemonicParsing="false" selected="true" text="使用Schema前缀" />
+                                           <CheckBox fx:id="forUpdateCheckBox" mnemonicParsing="false" selected="false" text="select 增加ForUpdate" />
                                        </children>
                                     </HBox>
                                      <HBox prefHeight="100.0" prefWidth="200.0" spacing="18.0">
                                          <children>
-                                             <CheckBox fx:id="forUpdateCheckBox" mnemonicParsing="false" selected="false" text="select 增加ForUpdate" />
-                                             <CheckBox fx:id="annotationDAOCheckBox" mnemonicParsing="false" selected="false" text="DAO使用 @Repository 注解" />
                                              <CheckBox fx:id="annotationMapperCheckBox" mnemonicParsing="false" selected="true" text="DAO使用 @Mapper 注解" />
+                                             <CheckBox fx:id="annotationJsonCheckBox" mnemonicParsing="false" selected="true" text="DAO使用 @@JSONType 注解" />
+                                             <CheckBox fx:id="annotationDAOCheckBox" mnemonicParsing="false" selected="false" text="DAO使用 @Repository 注解" />
                                          </children>
                                      </HBox>
                                      <HBox prefHeight="100.0" prefWidth="200.0">

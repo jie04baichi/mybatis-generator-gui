@@ -233,12 +233,22 @@ public class MybatisGeneratorBridge {
             }
         }
         //Mapper 插件
-        if(generatorConfig.isAnnotationMapper()) {
+        if(generatorConfig.isAnnotationDAOMapper()) {
             if (DbType.MySQL.name().equals(dbType) || DbType.MySQL_8.name().equals(dbType)
                     || DbType.PostgreSQL.name().equals(dbType)) {
                 PluginConfiguration pluginConfiguration = new PluginConfiguration();
                 pluginConfiguration.addProperty("type", "com.zzg.mybatis.generator.plugins.MapperPlugin");
                 pluginConfiguration.setConfigurationType("com.zzg.mybatis.generator.plugins.MapperPlugin");
+                context.addPluginConfiguration(pluginConfiguration);
+            }
+        }
+        //FastJson 插件
+        if(generatorConfig.isAnnotationDAOJson()) {
+            if (DbType.MySQL.name().equals(dbType) || DbType.MySQL_8.name().equals(dbType)
+                    || DbType.PostgreSQL.name().equals(dbType)) {
+                PluginConfiguration pluginConfiguration = new PluginConfiguration();
+                pluginConfiguration.addProperty("type", "com.zzg.mybatis.generator.plugins.FastJsonPlugin");
+                pluginConfiguration.setConfigurationType("com.zzg.mybatis.generator.plugins.FastJsonPlugin");
                 context.addPluginConfiguration(pluginConfiguration);
             }
         }
