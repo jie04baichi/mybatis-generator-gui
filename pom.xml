@@ -75,27 +75,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>com.zenjava</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>8.8.3</version>
-                <configuration>
-                    <bundleArguments>
-                        <!-- windows打包开启-->
-                        <icon>${project.basedir}/package/windows/mybatis-generator-gui.ico</icon>
-                        <!-- mac打包开启-->
-                        <icon>${project.basedir}/package/macosx/mybatis-generator-gui.icns</icon>
-                    </bundleArguments>
-                    <mainClass>com.zzg.mybatis.generator.MainUI</mainClass>
-                    <vendor>Owen Zou</vendor>
-                    <verbose>false</verbose>
-                    <jfxMainAppJarName>mybatis-generator-gui.jar</jfxMainAppJarName>
-                    <needShortcut>true</needShortcut>
-                    <needMenu>true</needMenu>
-                    <copyAdditionalAppResourcesToJar>true</copyAdditionalAppResourcesToJar>
-                    <additionalAppResources>${project.basedir}/src/main/resources</additionalAppResources>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 </project>
