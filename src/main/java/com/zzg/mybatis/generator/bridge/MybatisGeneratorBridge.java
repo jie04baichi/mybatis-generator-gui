@@ -114,7 +114,7 @@ public class MybatisGeneratorBridge {
 		}
 
         if (generatorConfig.getMapperName() != null) {
-            tableConfig.setMapperName(generatorConfig.getMapperName());
+            //tableConfig.setMapperName(generatorConfig.getMapperName());
         }
         // add ignore columns
         if (ignoredColumns != null) {
@@ -263,6 +263,16 @@ public class MybatisGeneratorBridge {
             }
         }
 
+        //Java Xml 文件 重命名插件
+        PluginConfiguration renameJavaMapper = new PluginConfiguration();
+        renameJavaMapper.addProperty("type", "com.zzg.mybatis.generator.plugins.RenameJavaMapperPlugin");
+        renameJavaMapper.setConfigurationType("com.zzg.mybatis.generator.plugins.RenameJavaMapperPlugin");
+        context.addPluginConfiguration(renameJavaMapper);
+        PluginConfiguration renameXmlMapper = new PluginConfiguration();
+        renameXmlMapper.addProperty("type", "com.zzg.mybatis.generator.plugins.RenameXmlMapperPlugin");
+        renameXmlMapper.setConfigurationType("com.zzg.mybatis.generator.plugins.RenameXmlMapperPlugin");
+        context.addPluginConfiguration(renameXmlMapper);
+        
         context.setTargetRuntime("MyBatis3");
 
         List<String> warnings = new ArrayList<>();
