@@ -56,11 +56,7 @@ public class MybatisGeneratorBridge {
         Configuration configuration = new Configuration();
         Context context = new Context(ModelType.CONDITIONAL);
         configuration.addContext(context);
-	    
-		context.addProperty("autoDelimitKeywords", "true");
-        context.addProperty("beginningDelimiter", "`");
-        context.addProperty("endingDelimiter", "`");
-	    
+
         context.addProperty("javaFileEncoding", "UTF-8");
 		String dbType = selectedDatabaseConfig.getDbType();
 		String connectorLibPath = ConfigHelper.findConnectorLibPath(dbType);
@@ -79,6 +75,9 @@ public class MybatisGeneratorBridge {
 
 		if (DbType.MySQL.name().equals(dbType) || DbType.MySQL_8.name().equals(dbType)) {
 			tableConfig.setSchema(selectedDatabaseConfig.getSchema());
+            context.addProperty("autoDelimitKeywords", "true");
+            context.addProperty("beginningDelimiter", "`");
+            context.addProperty("endingDelimiter", "`");
         } else {
             tableConfig.setCatalog(selectedDatabaseConfig.getSchema());
 	    }
