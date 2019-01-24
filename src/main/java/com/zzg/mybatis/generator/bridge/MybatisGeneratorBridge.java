@@ -266,7 +266,14 @@ public class MybatisGeneratorBridge {
         renameXmlMapper.addProperty("type", "com.zzg.mybatis.generator.plugins.RenameXmlMapperPlugin");
         renameXmlMapper.setConfigurationType("com.zzg.mybatis.generator.plugins.RenameXmlMapperPlugin");
         context.addPluginConfiguration(renameXmlMapper);
-        
+
+        // 解决重命名文件后XML文件没有覆盖的问题
+        PluginConfiguration overIsMergeablePlugin = new PluginConfiguration();
+        overIsMergeablePlugin.addProperty("type", "com.zzg.mybatis.generator.plugins.OverIsMergeablePlugin");
+        overIsMergeablePlugin.setConfigurationType("com.zzg.mybatis.generator.plugins.OverIsMergeablePlugin");
+        context.addPluginConfiguration(overIsMergeablePlugin);
+
+
         context.setTargetRuntime("MyBatis3");
 
         List<String> warnings = new ArrayList<>();
@@ -282,7 +289,6 @@ public class MybatisGeneratorBridge {
 				mappingXMLFile.delete();
 			}
 		}
-
         myBatisGenerator.generate(progressCallback, contexts, fullyqualifiedTables);
     }
 
